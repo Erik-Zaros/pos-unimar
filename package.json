@@ -1,0 +1,30 @@
+{
+  "name": "pos-unimar",
+  "version": "1.0.0",
+  "description": "backend API NodeJS DDD MIT User and Site Platform",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Erik-Zaros/pos-unimar.git"
+  },
+  "author": "Erik-Zaros",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Erik-Zaros/pos-unimar/issues"
+  },
+  "homepage": "https://github.com/Erik-Zaros/pos-unimar#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "firebase": "^12.16.0",
+    "firebase-tools": "^14.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1"
+  }
+}
