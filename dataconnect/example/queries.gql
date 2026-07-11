@@ -1,0 +1,134 @@
+mutation CreateCategory {
+  category_insert(data: { name: "Electronics", description: "Gadgets and devices" })
+}
+
+mutation DeleteCategory($id: UUID!) {
+  category_delete(id: $id)
+}
+
+mutation UpdateCategory($id: UUID!, $name: String!) {
+  category_update(id: $id, data: { name: $name })
+}
+
+query GetCategory($id: UUID!) @auth(level: PUBLIC, insecureReason: "Publicly accessible category data") {
+  category(id: $id) {
+    id
+    name
+    description
+  }
+}
+
+query ListCategories @auth(level: PUBLIC, insecureReason: "Publicly accessible categories") {
+  categories {
+    id
+    name
+  }
+}
+
+mutation CreateProduct($data: Product_Data!) @auth(level: USER) {
+  product_insert(data: $data)
+}
+
+mutation DeleteProduct($id: UUID!) @auth(level: USER) {
+  product_delete(id: $id)
+}
+
+mutation UpdateProduct($id: UUID!, $data: Product_Data!) @auth(level: USER) {
+  product_update(id: $id, data: $data)
+}
+
+query GetProduct($id: UUID!) @auth(level: PUBLIC, insecureReason: "Public product catalog") {
+  product(id: $id) {
+    name
+    price
+    stockQuantity
+  }
+}
+
+query ListProducts @auth(level: PUBLIC, insecureReason: "Public product catalog") {
+  products {
+    name
+    price
+  }
+}
+
+mutation CreateTransaction($data: Transaction_Data!) @auth(level: USER) {
+  transaction_insert(data: $data)
+}
+
+mutation DeleteTransaction($id: UUID!) @auth(level: USER) {
+  transaction_delete(id: $id)
+}
+
+mutation UpdateTransaction($id: UUID!, $data: Transaction_Data!) @auth(level: USER) {
+  transaction_update(id: $id, data: $data)
+}
+
+query GetTransaction($id: UUID!) @auth(level: USER) {
+  transaction(id: $id) {
+    totalAmount
+    timestamp
+    customerEmail
+  }
+}
+
+query ListTransactions @auth(level: USER) {
+  transactions {
+    id
+    totalAmount
+  }
+}
+
+mutation CreateTransactionItem($data: TransactionItem_Data!) @auth(level: USER) {
+  transactionItem_insert(data: $data)
+}
+
+mutation DeleteTransactionItem($id: UUID!) @auth(level: USER) {
+  transactionItem_delete(id: $id)
+}
+
+mutation UpdateTransactionItem($id: UUID!, $data: TransactionItem_Data!) @auth(level: USER) {
+  transactionItem_update(id: $id, data: $data)
+}
+
+query GetTransactionItem($id: UUID!) @auth(level: USER) {
+  transactionItem(id: $id) {
+    quantity
+    unitPriceAtTimeOfSale
+  }
+}
+
+query ListTransactionItems @auth(level: USER) {
+  transactionItems {
+    id
+    quantity
+  }
+}
+
+mutation CreateUser @auth(level: USER) {
+  user_insert(data: { id_expr: "auth.uid", name: "New User", role: "Member" })
+}
+
+mutation DeleteUser @auth(level: USER) {
+  user_delete(key: { id_expr: "auth.uid" })
+}
+
+mutation UpdateUser($name: String!) @auth(level: USER) {
+  user_update(key: { id_expr: "auth.uid" }, data: { name: $name })
+}
+
+query GetMyUser @auth(level: USER) {
+  user(key: { id_expr: "auth.uid" }) {
+    name
+    role
+    email
+  }
+}
+
+query ListUsers @auth(level: USER) {
+  users {
+    id
+    name
+    role
+  }
+}
