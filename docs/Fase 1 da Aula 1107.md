@@ -1,7 +1,3 @@
-# Walkthrough: DDD Node.js Backend with Firebase
-
-This document summarizes the changes made to initialize the Node.js backend following Domain-Driven Design (DDD) and Clean Architecture principles with Firebase integration.
-
 ## Architecture Highlights
 
 > [!NOTE]
