@@ -1,8 +1,3 @@
-## Architecture Highlights
-
-> [!NOTE]
-> The project has been structured into four main layers to enforce dependency inversion and SOLID principles.
-
 ### 1. Domain Layer (`src/domain/`)
 The core of our business logic.
 - **Entity**: [User](file:///d:/ddd-unimar/src/domain/entities/User.ts) represents the core business model.
